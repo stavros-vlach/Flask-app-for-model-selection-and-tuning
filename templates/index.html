@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ML Training App</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        label { display: block; margin-top: 10px; }
+        input, select { margin-bottom: 10px; }
+        .params { margin-left: 20px; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <h2>Train a Machine Learning Model</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+
+        <label>Upload CSV Dataset:</label>
+        <input type="file" name="dataset" required><br>
+
+        <label>Choose Model:</label>
+        <select id="model_select" name="model_name" onchange="showParams()">
+            <option value="logistic_regression">Logistic Regression</option>
+            <option value="svm">Support Vector Machine</option>
+            <option value="random_forest">Random Forest</option>
+        </select>
+
+        <div id="logistic_params" class="params">
+            <label>C (Logistic Regression):</label>
+            <input type="number" step="0.01" name="C" value="1.0">
+            <label>Max Iter:</label>
+            <input type="number" name="max_iter" value="200">
+        </div>
+
+        <div id="svm_params" class="params">
+            <label>C (SVM):</label>
+            <input type="number" step="0.01" name="C" value="1.0">
+            <label>Kernel:</label>
+            <input type="text" name="kernel" value="rbf">
+        </div>
+
+        <div id="rf_params" class="params">
+            <label>n_estimators:</label>
+            <input type="number" name="n_estimators" value="100">
+            <label>Max Depth:</label>
+            <input type="number" name="max_depth" value="5">
+        </div>
+
+        <button type="submit">Train</button>
+    </form>
+
+    
+    <script>
+        function showParams() {
+            const model = document.getElementById("model_select").value;
+            document.getElementById("logistic_params").style.display = (model==="logistic_regression") ? "block" : "none";
+            document.getElementById("svm_params").style.display = (model==="svm") ? "block" : "none";
+            document.getElementById("rf_params").style.display = (model==="random_forest") ? "block" : "none";
+        }
+        showParams();
+    </script>
+</body>
+</html>
+

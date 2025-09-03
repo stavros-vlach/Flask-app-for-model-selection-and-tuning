@@ -1,0 +1,12 @@
+{% if results %}
+        <h3>Results for {{ results['model'] }}</h3>
+        <p><strong>Accuracy:</strong> {{ results['accuracy'] }}</p>
+        <p><strong>Precision:</strong> {{ results['precision'] }}</p>
+        <p><strong>Recall:</strong> {{ results['recall'] }}</p>
+        <p><strong>F1 Score:</strong> {{ results['f1_score'] }}</p>
+
+        <h4>Confusion Matrix</h4>
+        <img src="data:image/png;base64,{{ results['confusion_matrix']|safe }}" alt="Confusion Matrix">
+
+    {% endif %}
+
