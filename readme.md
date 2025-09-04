@@ -26,7 +26,7 @@ python3 app.py
 http://127.0.0.1:5000
 
 ## Deployment
-The application is deployed on Render: [👉 Try the App Here.](https://flask-app-for-model-selection-and-tuning.onrender.com/?fbclid=IwY2xjawMmgCdleHRuA2FlbQIxMQABHmBwHSXHZCKb9X5am5wP6bH_HmWImbQldUL-f5zx-ETLez-3okX-HzRXfXET_aem_dxv08-zYl05m_9e-jjGQ1g)
+The application is deployed on Render: [👉 Try the App Here.](https://flask-app-for-model-selection-and-tuning.onrender.com/?fbclid=IwY2xjawMmgCdleHRuA2FlbQIxMQABHmBwHSXHZCKb9X5am5wP6bH_HmWImbQldUL-f5zx-ETLez-3okX-HzRXfXET_aem_dxv08-zYl05m_9e-jjGQ1g).
 
 
 
