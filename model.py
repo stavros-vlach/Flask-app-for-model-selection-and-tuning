@@ -4,6 +4,8 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier
 from utils import plot_confusion_matrix
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
 
 available_models = {
 	"logistic_regression": LogisticRegression,
@@ -18,10 +20,19 @@ def train_model(model_name, X, y, **kwargs):
     if model_name not in available_models:
         raise ValueError(f"Unknown model: {model_name}")
         
-    model = available_models[model_name](**kwargs)
+    if model_name in ["logistic_regression", "svm"]:
+        pipeline = Pipeline([
+            ("scaler", StandardScaler()),
+            ("model", available_models[model_name]())
+        ])
+    else:
+        pipeline = Pipeline([
+            ("model", available_models[model_name]())
+        ])
+
+    pipeline.fit(X_train, y_train)
     
-    model.fit(X_train, y_train)
-    y_pred = model.predict(X_test)
+    y_pred = pipeline.predict(X_test)
     
     accuracy = accuracy_score(y_test, y_pred)
     recall = recall_score(y_test, y_pred, average="macro")
