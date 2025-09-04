@@ -15,12 +15,13 @@ def index():
         file = request.files.get("dataset")
         if file and file.filename != "":
             df = pd.read_csv(file, sep=None, engine="python")
-            X, y, messages = preprocess_data(df)
-
+            
         else:
             iris = load_iris(as_frame=True)
             df = iris.frame
             df["target"] = iris.target 
+
+        X, y, messages = preprocess_data(df)
 
         results = train_model(model_name, X, y)
         results["messages"] = messages
