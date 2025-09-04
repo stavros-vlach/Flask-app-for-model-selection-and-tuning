@@ -14,9 +14,10 @@
 
     <form method="POST" enctype="multipart/form-data">
 
-        <label>Upload CSV Dataset:</label>
-        <input type="file" name="dataset" required><br>
-
+        <label for="dataset">Upload your dataset (CSV):</label>
+    <input type="file" name="dataset" id="dataset">
+    <p><em>If no file is uploaded, the Iris dataset will be used by default.</em></p>
+    
         <label>Choose Model:</label>
         <select id="model_select" name="model_name" onchange="showParams()">
             <option value="logistic_regression">Logistic Regression</option>
@@ -60,4 +61,3 @@
     </script>
 </body>
 </html>
-
