@@ -30,4 +30,3 @@ The application is deployed on Render: [👉 Try the App Here.](https://flask-ap
 
 
 
-https://flask-app-for-model-selection-and-tuning.onrender.com/
