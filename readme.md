@@ -8,9 +8,11 @@ A web application that allows users to train classification models (Logistic Reg
   - One-hot encoding for categorical features
   - Label encoding for categorical targets
   - Standard scaling for numerical features (for Logistic Regression and SVM)
+  - Handling missing values: shows number of NaNs per column and removes rows with missing values
 - Displays evaluation metrics: Accuracy, Recall, Precision, F1-score
 - Confusion matrix visualization
 - Upload your own dataset (default: Iris dataset)
+- Go to `/predict` to enter feature values manually and generate predictions using the trained model.
 
 ## Installation & Running Instructions
 1. Clone the repository:
