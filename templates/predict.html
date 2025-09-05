@@ -1,0 +1,16 @@
+<h3>Make a Prediction</h3>
+<form method="post" action="/predict">
+    {% for col in feature_names %}
+    <label for="{{ col }}">{{ col }}</label>
+    <input type="text" name="{{ col }}" id="{{ col }}" required>
+    <br>
+  {% endfor %}
+  <button type="submit">Predict</button>
+</form>
+
+{% if prediction %}
+  <h3>Prediction Result: {{ prediction }}</h3>
+{% endif %}
+    
+    
+
