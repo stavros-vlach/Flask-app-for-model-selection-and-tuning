@@ -4,17 +4,13 @@
         <p><strong>Precision:</strong> {{ results['precision'] }}</p>
         <p><strong>Recall:</strong> {{ results['recall'] }}</p>
         <p><strong>F1 Score:</strong> {{ results['f1_score'] }}</p>
+        {% if message %}
+        <p>{{message}}<p>
+        {% endif %}
         
-        {% if results['messages'] %}
-          <h4>Preprocessing Messages</h4>
-          <ul>
-          {% for msg in results['messages'] %}
-            <li>{{ msg }}</li>
-        {% endfor %}
-        </ul>
-      {% endif %}
-
-        <h4>Confusion Matrix</h4>
+        <h3>Confusion Matrix</h3>
         <img src="data:image/png;base64,{{ results['confusion_matrix']|safe }}" alt="Confusion Matrix">
 
     {% endif %}
+
+<a href="{{ url_for('predict') }}">Make a Prediction</a>
